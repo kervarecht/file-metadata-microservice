@@ -13,11 +13,10 @@ app.get("/", function (request, response) {
 });
 
 app.post("/file", upload.single('file'), function(req, res){
-  console.log("Received!");
-  fs.readStream(req.file, function(file){
-  
-  });
-  
+
+  res.send({
+    "size": req.file.size + " bytes"
+           });
 });
 
 var listener = app.listen(process.env.PORT, function () {
